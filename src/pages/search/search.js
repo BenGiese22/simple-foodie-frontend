@@ -126,9 +126,6 @@ class Search extends Component {
                     </Grid>
                 </Grid>
 
-                <p>Field: {this.state.field}</p>
-                <p>Query: {this.state.query}</p>
-                <p>Loading: {this.state.loading}</p>
                 <RecipeTable recipes={currentRecipes} loading={this.state.loading}/>
                 <Pagination recipesPerPage={this.state.recipesPerPage} totalRecipes={this.state.recipes.length} paginate={this.updatePage}/>
             </div>
