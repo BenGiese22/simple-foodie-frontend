@@ -26,7 +26,7 @@ class Search extends Component {
         recipes: [],
         loading: false,
         currentPage: 1,
-        recipesPerPage: 10,
+        recipesPerPage: 20,
         service: new RecipeApi()
     }
 
@@ -97,7 +97,7 @@ class Search extends Component {
         const currentRecipes = this.state.recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
         return (
             <div id='search'>
-                <h2>Search</h2>
+                <h2>Recipe Search</h2>
                 <Grid container direction="row">
                     <Grid item xs={10} align="left">
                         <TextField
@@ -110,7 +110,7 @@ class Search extends Component {
                             type='text'
                         />
                     </Grid>
-                    <Grid item xs>
+                    <Grid item xs={2}>
                         <FormControl variant="outlined" className='formControl'>
                             <Select
                                 native

@@ -8,6 +8,8 @@ import LoadingSpinner from 'react-loader-spinner'
 // import TableCell from '@material-ui/core/TableCell'
 // import Paper from '@material-ui/core/Paper'
 
+import './recipe-table.css'
+
 class RecipeTable extends Component {
     // constructor(props) {
     //     super(props);
@@ -45,12 +47,12 @@ class RecipeTable extends Component {
         const url = window.location.href + 'recipe/'
         return (
             <>
-                {this.props.loading ? <LoadingSpinner type="ThreeDots" color="black" height={80} width={80}/> : null}
+                {this.props.loading ? <LoadingSpinner className='spinner' type="ThreeDots" color="black" height={80} width={80}/> : null}
                 <ul>
                     {this.props.recipes.map((recipe, i) => {
                         return (
                             <li key={i}>
-                                <a href={url+recipe.id}>{recipe.title}</a>
+                                <a className='link' href={url+recipe.id}>{recipe.title}</a>
                             </li>
                         )
                     })}
