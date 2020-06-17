@@ -25,16 +25,20 @@ class Pagination extends Component {
 
     render () {
 
+
         const pageNumbers = [];
 
         for (let i = 1; i <= Math.ceil(this.props.totalRecipes / this.props.recipesPerPage); i++) {
             pageNumbers.push(i);
         }
 
-        return (
-          <Pag  count={pageNumbers.length} onChange={(event, page) => this.props.paginate(page)}/>
-        )
-
+        if (pageNumbers.length > 0) {
+            return (
+              <Pag  count={pageNumbers.length} onChange={(event, page) => this.props.paginate(page)}/>
+            )
+        } else {
+            return null
+        }
         // return (
         //     <nav>
         //       <ul className='pagination'>

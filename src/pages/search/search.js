@@ -134,15 +134,3 @@ class Search extends Component {
 }
 
 export default Search
-
-/*
-<ul>
-                    {currentRecipes.map((recipe, i) => {
-                        return (
-                            <li key={i}>
-                                <a href={recipe.link}>{recipe.title}</a>
-                            </li>
-                        )
-                    })}
-                </ul>
-*/
