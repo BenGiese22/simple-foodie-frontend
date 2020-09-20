@@ -56,7 +56,6 @@ class Search extends Component {
         this.timer = setTimeout(this.handleSearchRequest, WAIT_INTERVAL);
         
     }
-
     // If user presses enter, bypass WAIT_INTERVAL and search
     handleKeyDown = (e) => {
         if (e.keyCode === ENTER_KEY) {
@@ -97,7 +96,7 @@ class Search extends Component {
         const currentRecipes = this.state.recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
         return (
             <div id='search'>
-                <h2>Recipe Search</h2>
+                <h2 class='header'>Recipe Search</h2>
                 <Grid container direction="row">
                     <Grid item xs={10} align="left">
                         <TextField

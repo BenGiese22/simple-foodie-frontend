@@ -69,7 +69,7 @@ class Recipe extends Component {
                 <div id='recipe'>
                     <Grid container spacing={0}>
                         <Grid item xs={12}>
-                            <Typography align="center" variant="h4" gutterBottom>
+                            <Typography align="center" variant="h4" fontWeight="fontWeightLight" gutterBottom>
                                 {this.state.title}
                             </Typography>
                             <Typography variant="h5" gutterBottom>

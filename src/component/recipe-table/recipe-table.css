@@ -5,4 +5,11 @@
 
 .link {
     font-family: 'Verdana';
+    color: #484848;
+    text-decoration: none;
+}
+
+.recipe_title_line {
+    line-height: 1.5;
+    list-style-type: circle;
 }

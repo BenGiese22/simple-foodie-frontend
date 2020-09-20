@@ -51,7 +51,7 @@ class RecipeTable extends Component {
                 <ul>
                     {this.props.recipes.map((recipe, i) => {
                         return (
-                            <li key={i}>
+                            <li key={i} class="recipe_title_line">
                                 <a className='link' href={url+recipe.id}>{recipe.title}</a>
                             </li>
                         )
