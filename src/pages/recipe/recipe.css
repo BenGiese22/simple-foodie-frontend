@@ -3,6 +3,22 @@
     margin-right: 5%;
 }
 
-#title {
-    font-weight: 300;
+.title {
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.link {
+    color: grey;
+    text-decoration: none;
+}
+
+.section_header {
+    font-size: 1.75rem;
+}
+
+.body {
+    font-size: 1rem;
+    font-weight: 350;
 }

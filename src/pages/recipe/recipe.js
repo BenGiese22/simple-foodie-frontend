@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import RecipeApi from '../../service/recipe-api'
 import LoadingSpinner from 'react-loader-spinner'
@@ -9,7 +12,7 @@ import Grid from '@material-ui/core/Grid'
 
 import './recipe.css'
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://simple-foodie-frontend.herokuapp.com';
 
 class Recipe extends Component {
 
@@ -50,6 +53,16 @@ class Recipe extends Component {
         })
     }
 
+    homeButton = () => {
+        console.log('home clicked')
+        // window.location.href = BASE_URL
+    }
+
+    externalButton = () => {
+        console.log('external clicked')
+        // window.location.href = this.state.link
+    }
+
     render () {
         console.log(window.location.hostname);
         console.log(window.location.pathname);
@@ -69,24 +82,36 @@ class Recipe extends Component {
                 <div id='recipe'>
                     <Grid container spacing={0}>
                         <Grid item xs={12}>
-                            <Typography align="center" variant="h4" fontWeight="fontWeightLight" gutterBottom>
+                            <div class="title">
                                 {this.state.title}
-                            </Typography>
-                            <Typography variant="h5" gutterBottom>
-                                <a href={BASE_URL}>Home</a>
-                            </Typography>
-                            <Typography variant="h5" gutterBottom>
-                                <a href={this.state.link}>External Link</a>
-                            </Typography>
-                            <Typography variant="h5" gutterBottom>
+                            </div>
+                            <Button
+                                variant="contained"
+                                color="default"
+                                startIcon={<ArrowBackIosIcon />}
+                                onClick={() => this.homeButton()}
+                            >Home</Button>
+                            <Button
+                                variant="contained"
+                                color="default"
+                                endIcon={<ArrowForwardIosIcon />}
+                                onClick={() => this.externalButton()}
+                            >External Link</Button>
+                            <div class="section_header">
                                 Ingredients
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>{this.state.ingredients}</Typography>
-                            <Typography variant="h5" gutterBottom>
+                            </div>
+                            <div class="body">
+                                {this.state.ingredients}
+                            </div>
+                            <div class="section_header">
                                 Directions
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>{this.state.directions}</Typography>
-                            <Typography variant="body2" align="right" gutterBottom>Source: {this.state.source}</Typography>
+                            </div>
+                            <div class="body">
+                                {this.state.directions}
+                            </div>
+                            <div class="source">
+                                Source: {this.state.source}
+                            </div>
                         </Grid>
                     </Grid>
                 </div>
