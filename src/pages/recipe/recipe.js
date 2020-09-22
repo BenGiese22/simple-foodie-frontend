@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
 import RecipeApi from '../../service/recipe-api'
 import LoadingSpinner from 'react-loader-spinner'
 
@@ -12,7 +7,6 @@ import Grid from '@material-ui/core/Grid'
 
 import './recipe.css'
 
-const BASE_URL = 'https://simple-foodie-frontend.herokuapp.com';
 
 class Recipe extends Component {
 
@@ -30,7 +24,6 @@ class Recipe extends Component {
     componentDidMount() {
         // this.handleRecipeRequest(this.state.id);
         this.state.service.getRecipe(this.state.id).then((recipe) => {
-            console.log(recipe);
 
             this.setState({
                 link: recipe.link,
@@ -45,7 +38,6 @@ class Recipe extends Component {
     handleRecipeRequest = (id) => {
         console.log('received id: ' + id);
         this.state.service.getRecipe(id).then((recipe) => {
-            console.log(recipe);
 
             this.setState({
                 recipe: recipe
@@ -53,20 +45,7 @@ class Recipe extends Component {
         })
     }
 
-    homeButton = () => {
-        console.log('home clicked')
-        // window.location.href = BASE_URL
-    }
-
-    externalButton = () => {
-        console.log('external clicked')
-        // window.location.href = this.state.link
-    }
-
     render () {
-        console.log(window.location.hostname);
-        console.log(window.location.pathname);
-        console.log(window.location.href);
         if (this.state.recipe === null) {
             return (
                 <div id='recipe'>
@@ -85,18 +64,6 @@ class Recipe extends Component {
                             <div class="title">
                                 {this.state.title}
                             </div>
-                            <Button
-                                variant="contained"
-                                color="default"
-                                startIcon={<ArrowBackIosIcon />}
-                                onClick={() => this.homeButton()}
-                            >Home</Button>
-                            <Button
-                                variant="contained"
-                                color="default"
-                                endIcon={<ArrowForwardIosIcon />}
-                                onClick={() => this.externalButton()}
-                            >External Link</Button>
                             <div class="section_header">
                                 Ingredients
                             </div>
@@ -110,7 +77,7 @@ class Recipe extends Component {
                                 {this.state.directions}
                             </div>
                             <div class="source">
-                                Source: {this.state.source}
+                                <a href={this.state.link}>Source: {this.state.source}</a>
                             </div>
                         </Grid>
                     </Grid>
