@@ -69,24 +69,24 @@ class Recipe extends Component {
                 <div id='recipe'>
                     <Grid container spacing={0}>
                         <Grid item xs={12}>
-                            <Typography align="center" variant="h4" fontWeight="fontWeightLight" gutterBottom>
-                                {this.state.title}
-                            </Typography>
-                            <Typography variant="h5" gutterBottom>
-                                <a href={BASE_URL}>Home</a>
-                            </Typography>
-                            <Typography variant="h5" gutterBottom>
-                                <a href={this.state.link}>External Link</a>
-                            </Typography>
-                            <Typography variant="h5" gutterBottom>
+                            <div id="title">
+                                <a class="link" href={this.state.link}>{this.state.title}</a>
+                            </div>
+                            <div class="section_header">
                                 Ingredients
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>{this.state.ingredients}</Typography>
-                            <Typography variant="h5" gutterBottom>
+                            </div>
+                            <div class="body">
+                                {this.state.ingredients}
+                            </div>
+                            <div class="section_header">
                                 Directions
-                            </Typography>
-                            <Typography variant="body1" gutterBottom>{this.state.directions}</Typography>
-                            <Typography variant="body2" align="right" gutterBottom>Source: {this.state.source}</Typography>
+                            </div>
+                            <div class="body">
+                                {this.state.directions}
+                            </div>
+                            <div class="source">
+                                {this.state.source}
+                            </div>
                         </Grid>
                     </Grid>
                 </div>
