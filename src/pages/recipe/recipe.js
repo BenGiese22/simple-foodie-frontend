@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import Typography from '@material-ui/core/Typography'
-
 import RecipeApi from '../../service/recipe-api'
 import LoadingSpinner from 'react-loader-spinner'
 
@@ -9,7 +7,6 @@ import Grid from '@material-ui/core/Grid'
 
 import './recipe.css'
 
-const BASE_URL = 'http://localhost:3000';
 
 class Recipe extends Component {
 
@@ -27,7 +24,6 @@ class Recipe extends Component {
     componentDidMount() {
         // this.handleRecipeRequest(this.state.id);
         this.state.service.getRecipe(this.state.id).then((recipe) => {
-            console.log(recipe);
 
             this.setState({
                 link: recipe.link,
@@ -42,7 +38,6 @@ class Recipe extends Component {
     handleRecipeRequest = (id) => {
         console.log('received id: ' + id);
         this.state.service.getRecipe(id).then((recipe) => {
-            console.log(recipe);
 
             this.setState({
                 recipe: recipe
@@ -51,9 +46,6 @@ class Recipe extends Component {
     }
 
     render () {
-        console.log(window.location.hostname);
-        console.log(window.location.pathname);
-        console.log(window.location.href);
         if (this.state.recipe === null) {
             return (
                 <div id='recipe'>
@@ -69,8 +61,8 @@ class Recipe extends Component {
                 <div id='recipe'>
                     <Grid container spacing={0}>
                         <Grid item xs={12}>
-                            <div id="title">
-                                <a class="link" href={this.state.link}>{this.state.title}</a>
+                            <div class="title">
+                                {this.state.title}
                             </div>
                             <div class="section_header">
                                 Ingredients
@@ -85,7 +77,7 @@ class Recipe extends Component {
                                 {this.state.directions}
                             </div>
                             <div class="source">
-                                {this.state.source}
+                                <a class="link" href={this.state.link}>Source: {this.state.source}</a>
                             </div>
                         </Grid>
                     </Grid>
