@@ -22,7 +22,6 @@ class Recipe extends Component {
     }
 
     componentDidMount() {
-        // this.handleRecipeRequest(this.state.id);
         this.state.service.getRecipe(this.state.id).then((recipe) => {
 
             this.setState({
