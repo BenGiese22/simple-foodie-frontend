@@ -47,7 +47,7 @@ class RecipeTable extends Component {
         const url = window.location.href + 'recipe/'
         return (
             <>
-                {this.props.loading ? <LoadingSpinner className='spinner' type="ThreeDots" color="black" height={80} width={80}/> : null}
+                {this.props.loading ? <LoadingSpinner className='spinner' type="ThreeDots" color="white" height={80} width={80}/> : null}
                 <ul>
                     {this.props.recipes.map((recipe, i) => {
                         return (

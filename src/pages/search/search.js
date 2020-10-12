@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import FormControl from '@material-ui/core/FormControl'
 // import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import NativeSelect from '@material-ui/core/NativeSelect'
 // import FormHelperText from '@material-ui/core/FormHelperText'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
@@ -105,22 +107,23 @@ class Search extends Component {
                             onKeyDown={this.handleKeyDown}
                             value={this.state.query}
                             variant="outlined"
-                            placeholder=' Search'
+                            placeholder='Search'
                             type='text'
                         />
                     </Grid>
                     <Grid item xs={2}>
                         <FormControl variant="outlined" className='formControl'>
-                            <Select
+                            <NativeSelect
                                 native
+                                menuIsOpen={true}
                                 value={this.state.field}
                                 name='Field'
                                 onChange={event => this.handleFieldChange(event.target.value)}
                             >
                                 <option value={'title'}>Title</option>
-                                <option  value={'ingredients'}>Ingredients</option>
-                                <option  value={'directions'}>Directions</option>
-                            </Select>
+                                <option value={'ingredients'}>Ingredients</option>
+                                <option value={'directions'}>Directions</option>
+                            </NativeSelect>
                          </FormControl>
                     </Grid>
                 </Grid>
