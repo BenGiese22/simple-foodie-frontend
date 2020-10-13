@@ -3,28 +3,8 @@ import Pag from '@material-ui/lab/Pagination'
 
 class Pagination extends Component {
 
-    // state = {
-    //     pageNumbers: []
-    // }
-
-    // componentDidUpdate() {
-    //     if(this.props.recipes.length === 0) {
-    //        console.log('still loading'); 
-    //     } else {
-    //         console.log(this.props.totalRecipes);
-    //         console.log(this.props.recipesPerPage);
-    //         console.log(this.state.pageNumbers);
-
-    //         let temp = [];
-    //         for(let i = 1; i <= Math.ceil(this.props.totalRecipes / this.props.recipesPerPage); i++) {
-    //             temp.push(i);
-    //         }
-    //         this.setState({ pageNumbers: temp})
-    //     }
-    // }
 
     render () {
-
 
         const pageNumbers = [];
 
@@ -34,24 +14,12 @@ class Pagination extends Component {
 
         if (pageNumbers.length > 0) {
             return (
-              <Pag  count={pageNumbers.length} size={'large'} onChange={(event, page) => this.props.paginate(page)}/>
+              <Pag count={pageNumbers.length} size={'medium'} onChange={(event, page) => this.props.paginate(page)}/>
             )
         } else {
             return null
         }
-        // return (
-        //     <nav>
-        //       <ul className='pagination'>
-        //         {pageNumbers.map(number => (
-        //           <li key={number} className='page-item'>
-        //             <a onClick={() => this.props.paginate(number)} href='javascript:void(0)' className='page-link'>
-        //               {number}
-        //             </a>
-        //           </li>
-        //         ))}
-        //       </ul>
-        //     </nav>
-        // )
+
     }
 }
 

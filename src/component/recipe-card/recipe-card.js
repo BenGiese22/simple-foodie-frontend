@@ -62,11 +62,13 @@ class RecipeCard extends Component {
                 </CardActions> */}
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                    <Typography paragraph>Ingredients:</Typography>
+                    <Typography variant="h6">
+                        Ingredients:
+                    </Typography>
                     <Typography paragraph>
                         {this.props.ingredients}
                     </Typography>
-                    <Typography paragraph>
+                    <Typography variant="h6">
                         Directions:
                     </Typography>
                     <Typography paragraph>

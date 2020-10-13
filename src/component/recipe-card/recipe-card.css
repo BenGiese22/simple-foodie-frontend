@@ -1,6 +1,7 @@
 
 .root {
     max-width: 345;
+    margin-bottom: 5px;
 }
 
 .media {
@@ -16,4 +17,17 @@
   
 .expandOpen {
     transform: rotate(180deg);
+}
+
+.MuiTypography-h5 {
+    font-size: 1rem!important;
+    
+}
+
+.MuiTypography-body1 {
+    font-size: .8rem!important;
+}
+
+.MuiCardHeader-root {
+    padding: 12px!important;
 }

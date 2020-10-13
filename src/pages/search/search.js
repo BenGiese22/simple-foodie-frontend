@@ -64,6 +64,10 @@ class Search extends Component {
     handleSearchRequest = () => {
         // Handle empty query, shouldn't make callout
         if (this.state.query === '') {
+            this.setState({
+                recipes: [],
+                loading: false
+            })
             return;
         }
 
@@ -97,7 +101,7 @@ class Search extends Component {
             <div id='search'>
                 <h2 className='header'>Recipe Search</h2>
                 <Grid container direction="row">
-                    <Grid item xs={10} align="left">
+                    <Grid item md={9} xs={7} align="left">
                         <TextField
                             className='searchBar'
                             onChange={event=>this.handleSearchWait(event.target.value)}
@@ -108,7 +112,7 @@ class Search extends Component {
                             type='text'
                         />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item md={3} xs={5}>
                         <FormControl variant="outlined" className='formControl'>
                             <NativeSelect
                                 value={this.state.field}

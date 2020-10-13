@@ -8,6 +8,7 @@ html {
     min-width: 130px !important;
     /* padding-left: 5px !important; */
     /* border: 5px black !important; */
+    width: 100%;
 }
 
 .formControl select {
@@ -17,6 +18,7 @@ html {
     padding-left: 5px;
     padding-right: 32px;
     padding-bottom: 0px;
+    width: 100%;
 }
 
 .formControl select:focus {
@@ -45,6 +47,7 @@ html {
 .header {
     font-weight: 350;
     color: white;
+    text-align: center;
 }
 
 #search {

@@ -17,3 +17,7 @@
 .card {
     margin-bottom: 10px;
 }
+
+ul { 
+    padding-inline-start: 0px;
+}
