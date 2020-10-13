@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 import FormControl from '@material-ui/core/FormControl'
-// import InputLabel from '@material-ui/core/InputLabel'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
 import NativeSelect from '@material-ui/core/NativeSelect'
-// import FormHelperText from '@material-ui/core/FormHelperText'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 
@@ -97,8 +93,9 @@ class Search extends Component {
         const indexOfFirstRecipe = indexOfLastRecipe - this.state.recipesPerPage;
         const currentRecipes = this.state.recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
         return (
+            
             <div id='search'>
-                <h2 class='header'>Recipe Search</h2>
+                <h2 className='header'>Recipe Search</h2>
                 <Grid container direction="row">
                     <Grid item xs={10} align="left">
                         <TextField
@@ -114,8 +111,6 @@ class Search extends Component {
                     <Grid item xs={2}>
                         <FormControl variant="outlined" className='formControl'>
                             <NativeSelect
-                                native
-                                menuIsOpen={true}
                                 value={this.state.field}
                                 name='Field'
                                 onChange={event => this.handleFieldChange(event.target.value)}

@@ -1,0 +1,19 @@
+
+.root {
+    max-width: 345;
+}
+
+.media {
+    height: 0px;
+    padding-top: '56.25%';
+}
+
+.expand {
+    transform: rotate(0deg);
+    margin-left: auto;
+
+}
+  
+.expandOpen {
+    transform: rotate(180deg);
+}
