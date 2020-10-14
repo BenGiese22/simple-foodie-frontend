@@ -50,17 +50,7 @@ class RecipeCard extends Component {
                     title={this.props.title}
                     subheader={this.props.source}
                 />
-                {/* <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        I don't think we'll use this
-                    </Typography>
-                </CardContent> */}
                 <CardActions disableSpacing>
-                    {/* <IconButton>
-                        <OpenInNewIcon
-                            fontSize="small"
-                        />
-                    </IconButton> */}
                         <IconButton
                             className={clsx("expand", {
                               ["expandOpen"]: this.state.expanded,
