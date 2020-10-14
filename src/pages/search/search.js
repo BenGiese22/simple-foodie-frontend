@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import FormControl from '@material-ui/core/FormControl'
-// import InputLabel from '@material-ui/core/InputLabel'
-import Select from '@material-ui/core/Select'
-// import FormHelperText from '@material-ui/core/FormHelperText'
+import NativeSelect from '@material-ui/core/NativeSelect'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 
@@ -66,6 +64,10 @@ class Search extends Component {
     handleSearchRequest = () => {
         // Handle empty query, shouldn't make callout
         if (this.state.query === '') {
+            this.setState({
+                recipes: [],
+                loading: false
+            })
             return;
         }
 
@@ -95,32 +97,32 @@ class Search extends Component {
         const indexOfFirstRecipe = indexOfLastRecipe - this.state.recipesPerPage;
         const currentRecipes = this.state.recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
         return (
+            
             <div id='search'>
-                <h2 class='header'>Recipe Search</h2>
+                <h2 className='header'>Recipe Search</h2>
                 <Grid container direction="row">
-                    <Grid item xs={10} align="left">
+                    <Grid item md={9} xs={7} align="left">
                         <TextField
                             className='searchBar'
                             onChange={event=>this.handleSearchWait(event.target.value)}
                             onKeyDown={this.handleKeyDown}
                             value={this.state.query}
                             variant="outlined"
-                            placeholder=' Search'
+                            placeholder='Search'
                             type='text'
                         />
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item md={3} xs={5}>
                         <FormControl variant="outlined" className='formControl'>
-                            <Select
-                                native
+                            <NativeSelect
                                 value={this.state.field}
                                 name='Field'
                                 onChange={event => this.handleFieldChange(event.target.value)}
                             >
                                 <option value={'title'}>Title</option>
-                                <option  value={'ingredients'}>Ingredients</option>
-                                <option  value={'directions'}>Directions</option>
-                            </Select>
+                                <option value={'ingredients'}>Ingredients</option>
+                                <option value={'directions'}>Directions</option>
+                            </NativeSelect>
                          </FormControl>
                     </Grid>
                 </Grid>

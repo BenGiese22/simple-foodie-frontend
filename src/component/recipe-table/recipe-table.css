@@ -13,3 +13,11 @@
     line-height: 1.5;
     list-style-type: circle;
 }
+
+.card {
+    margin-bottom: 10px;
+}
+
+ul { 
+    padding-inline-start: 0px;
+}
