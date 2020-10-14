@@ -3,6 +3,20 @@
     margin-right: 15%;
 }
 
+@media only screen and (max-width: 900px) {
+    #recipe {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #recipe {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+
 .title {
     font-weight: 400;
     font-size: 1.9rem;
