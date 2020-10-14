@@ -20,7 +20,8 @@ class RecipeCard extends Component {
     }
 
     handleNavigateToRecipe = () => {
-        window.location.href = '/recipe/' + this.props.id
+        let url = '/recipe/' + this.props.id
+        window.open(url, '_blank');
     }
 
     render () {
@@ -35,16 +36,6 @@ class RecipeCard extends Component {
             <Card className="root">
                 <CardHeader
                     action={
-                        // <IconButton
-                        //     className={clsx("expand", {
-                        //       ["expandOpen"]: this.state.expanded,
-                        //     })}
-                        //     onClick={handleExpandClick}
-                        //     aria-expanded={this.state.expanded}
-                        //     aria-label="show more"
-                        // >
-                        //   <ExpandMoreIcon />
-                        // </IconButton>
                         <IconButton>
                             <OpenInNewIcon
                                 fontSize="small"

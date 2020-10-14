@@ -24,7 +24,7 @@ class Search extends Component {
         recipes: [],
         loading: false,
         currentPage: 1,
-        recipesPerPage: 20,
+        recipesPerPage: 12,
         service: new RecipeApi()
     }
 

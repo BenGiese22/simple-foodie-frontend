@@ -4,6 +4,7 @@ import RecipeApi from '../../service/recipe-api'
 import LoadingSpinner from 'react-loader-spinner'
 
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 
 import './recipe.css'
 
@@ -63,21 +64,26 @@ class Recipe extends Component {
                             <div class="title">
                                 {this.state.title}
                             </div>
-                            <div class="section_header">
-                                Ingredients
-                            </div>
-                            <div class="body">
-                                {this.state.ingredients}
-                            </div>
-                            <div class="section_header">
-                                Directions
-                            </div>
-                            <div class="body">
-                                {this.state.directions}
-                            </div>
-                            <div class="source">
-                                <a class="link" href={this.state.link}>Source: {this.state.source}</a>
-                            </div>
+                            <Paper className="paper_header" elevation={12}>
+                                <div class="section_header">
+                                    Ingredients
+                                </div>
+                                <div class="body">
+                                    {this.state.ingredients}
+                                </div>
+                            </Paper>
+
+                            <Paper className="paper_header" elevation={12}>
+                                <div class="section_header">
+                                    Directions
+                                </div>
+                                <div class="body">
+                                    {this.state.directions}
+                                </div>
+                                <div class="source">
+                                    <a class="link" href={this.state.link}>Source: {this.state.source}</a>
+                                </div>
+                            </Paper>
                         </Grid>
                     </Grid>
                 </div>
