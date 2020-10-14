@@ -19,6 +19,10 @@ class RecipeCard extends Component {
         expanded: false
     }
 
+    handleNavigateToRecipe = () => {
+        window.location.href = '/recipe/' + this.props.id
+    }
+
     render () {
 
         const handleExpandClick = () => {
@@ -44,6 +48,7 @@ class RecipeCard extends Component {
                         <IconButton>
                             <OpenInNewIcon
                                 fontSize="small"
+                                onClick={this.handleNavigateToRecipe}
                             />
                         </IconButton>
                     }
