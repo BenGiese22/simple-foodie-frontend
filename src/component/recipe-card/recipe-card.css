@@ -20,14 +20,23 @@
 }
 
 .MuiTypography-h5 {
-    font-size: 1rem!important;
-    
+    font-size: 1.25rem!important;
 }
 
 .MuiTypography-body1 {
-    font-size: .8rem!important;
+    font-size: .9rem!important;
 }
 
 .MuiCardHeader-root {
     padding: 12px!important;
+}
+
+.MuiCardActions-root {
+    float: right;
+    padding: 0px;
+    padding-right: 2px!important;
+}
+
+.MuiIconButton-root {
+    padding: 0px;
 }
