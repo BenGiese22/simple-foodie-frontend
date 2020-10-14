@@ -108,7 +108,7 @@ class Search extends Component {
                             onKeyDown={this.handleKeyDown}
                             value={this.state.query}
                             variant="outlined"
-                            placeholder='Search'
+                            placeholder='Search...'
                             type='text'
                         />
                     </Grid>
@@ -128,7 +128,9 @@ class Search extends Component {
                 </Grid>
 
                 <RecipeTable recipes={currentRecipes} loading={this.state.loading}/>
-                <Pagination recipesPerPage={this.state.recipesPerPage} totalRecipes={this.state.recipes.length} paginate={this.updatePage}/>
+                <Grid container alignContent="center" alignItems="center" justify="center" direction="row">
+                    <Pagination recipesPerPage={this.state.recipesPerPage} totalRecipes={this.state.recipes.length} paginate={this.updatePage}/>
+                </Grid>
             </div>
         )
     }

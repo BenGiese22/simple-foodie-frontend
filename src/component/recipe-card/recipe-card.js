@@ -6,9 +6,11 @@ import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
+import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import Typography from '@material-ui/core/Typography'
 
 class RecipeCard extends Component {
@@ -29,15 +31,20 @@ class RecipeCard extends Component {
             <Card className="root">
                 <CardHeader
                     action={
-                        <IconButton
-                            className={clsx("expand", {
-                              ["expandOpen"]: this.state.expanded,
-                            })}
-                            onClick={handleExpandClick}
-                            aria-expanded={this.state.expanded}
-                            aria-label="show more"
-                        >
-                          <ExpandMoreIcon />
+                        // <IconButton
+                        //     className={clsx("expand", {
+                        //       ["expandOpen"]: this.state.expanded,
+                        //     })}
+                        //     onClick={handleExpandClick}
+                        //     aria-expanded={this.state.expanded}
+                        //     aria-label="show more"
+                        // >
+                        //   <ExpandMoreIcon />
+                        // </IconButton>
+                        <IconButton>
+                            <OpenInNewIcon
+                                fontSize="small"
+                            />
                         </IconButton>
                     }
                     title={this.props.title}
@@ -48,18 +55,23 @@ class RecipeCard extends Component {
                         I don't think we'll use this
                     </Typography>
                 </CardContent> */}
-                {/* <CardActions disableSpacing>
-                    <IconButton
-                        className={clsx("expand", {
-                          ["expandOpen"]: this.state.expanded,
-                        })}
-                        onClick={handleExpandClick}
-                        aria-expanded={this.state.expanded}
-                        aria-label="show more"
-                    >
-                      <ExpandMoreIcon />
-                    </IconButton>
-                </CardActions> */}
+                <CardActions disableSpacing>
+                    {/* <IconButton>
+                        <OpenInNewIcon
+                            fontSize="small"
+                        />
+                    </IconButton> */}
+                        <IconButton
+                            className={clsx("expand", {
+                              ["expandOpen"]: this.state.expanded,
+                            })}
+                            onClick={handleExpandClick}
+                            aria-expanded={this.state.expanded}
+                            aria-label="show more"
+                        >
+                          <ExpandMoreIcon />
+                        </IconButton>
+                </CardActions>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography variant="h6">
