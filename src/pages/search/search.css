@@ -2,7 +2,7 @@
 
 html {
     height: 100%;
-    background-color: #131418;
+    background-color: #393A3F;
 }
 
 .formControl {
@@ -14,12 +14,13 @@ html {
 
 .formControl select {
     height: 49px;
-    background-color: lightgray;
+    background-color:  #202125;
     padding-top: 0px;
     padding-left: 5px;
     padding-right: 32px;
     padding-bottom: 0px;
     width: 100%;
+    color: white;
 }
 
 .formControl .MuiInput-formControl {
@@ -28,9 +29,12 @@ html {
 }
 
 .MuiNativeSelect-select:focus {
-    background-color: lightgray!important;
+    background-color:  #202125!important;
 }
 
+.MuiNativeSelect-select:not([multiple]) option {
+    background-color:  #202125!important;
+}
 
 .option {
     font-weight: 200px;
@@ -44,11 +48,12 @@ html {
     /* border: 1px gray; */
     border-radius: 4px;
     margin-bottom: 10px !important;
-    background: lightgray;
+    background:  #202125;
 }
 
 .searchBar input {
     padding: 15.5px 14px;
+    color: white;
 }
 
 .header {

@@ -71,8 +71,15 @@ class Search extends Component {
             return;
         }
 
+        //["250 ml milk", "1 x 7 g sachet of yeast", "
         this.state.service.getQuery(this.state.field, this.state.query).then((recipes) => {
             console.log(recipes)
+
+            recipes.forEach(recipe => {
+                let ingredientsStr = recipe.ingredients.replaceAll('[\'', '["').replaceAll('\', \'', '", "').replaceAll('\']', '"]')
+                let ingredients = JSON.parse(ingredientsStr)
+                recipe.ingredients = ingredients
+            })
 
             // Stop loading
             this.setState(() => {

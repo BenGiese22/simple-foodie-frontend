@@ -26,7 +26,7 @@ class Recipe extends Component {
     componentDidMount() {
         this.state.service.getRecipe(this.state.id).then((recipe) => {
 
-            let ingredientsStr = recipe.ingredients.replaceAll('\'', '"')
+            let ingredientsStr = recipe.ingredients.replaceAll('[\'', '["').replaceAll('\', \'', '", "').replaceAll('\']', '"]')
             let ingredients = JSON.parse(ingredientsStr)
 
             this.setState({
@@ -94,11 +94,11 @@ class Recipe extends Component {
                             <div className="body">
                                 {/* {this.state.ingredients} */}
                                 <ul className="ingredients_list">
-                                {this.state.ingredients.map((ingredient, i) => {
-                                    return (
-                                        <li key={i}>{ingredient}</li>
-                                    )
-                                })}
+                                    {this.state.ingredients.map((ingredient, i) => {
+                                        return (
+                                            <li key={i}>{ingredient}</li>
+                                        )
+                                    })}
                                 </ul> 
                             </div>
                         </Grid>

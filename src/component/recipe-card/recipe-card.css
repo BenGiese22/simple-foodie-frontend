@@ -2,7 +2,7 @@
 
 .root {
     margin-bottom: 5px;
-    background-color: lightgray!important;
+    background-color: #202125!important;
 }
 
 .expand {
@@ -11,6 +11,18 @@
 
 }
 
+.card_action_root {
+    margin-top: -12px;
+}
+
+.card_ingredients_list {
+    list-style-position: inside;
+}
+
+.card_content {
+    font-family: Neuton;
+    color: white;
+}
 
 .card_image_grid {
     padding-top: 10px;
@@ -24,6 +36,10 @@
     float: right;
 }
 
+.MuiIconButton-root {
+    color: white!important;
+}
+
 
 .card_recipe_image {
     height: 100px;
@@ -33,12 +49,23 @@
     border: 2px solid white;
 }
 
+
+@media only screen and (max-width: 900px) {
+    .card_info_section {
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
+    .ingredients_section {
+        margin-bottom: 10px!important;
+    }
+}
+
 .card_info_section {
-    color: black;
+    color: white;
     font-family: Neuton;
     text-align: center;
-    margin-top: 10%;
-    margin-bottom: 5%
+    margin-top: 5%;
+    margin-bottom: 2%;
 }
 
 .card_title {
@@ -50,7 +77,7 @@
 .card_source {
     text-decoration: none;
     font-size: 0.8rem;
-    color: black;
+    color: white;
 }
 
 .media {

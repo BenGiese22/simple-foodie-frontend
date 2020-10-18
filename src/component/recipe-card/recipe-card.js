@@ -94,7 +94,7 @@ class RecipeCard extends Component {
                     image={this.props.image}
                     title={this.props.title}
                 /> */}
-                <CardActions disableSpacing>
+                <CardActions className="card_action_root" disableSpacing>
                         <IconButton
                             className={clsx("expand", {
                               ["expandOpen"]: this.state.expanded,
@@ -107,8 +107,8 @@ class RecipeCard extends Component {
                         </IconButton>
                 </CardActions>
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                    <Typography variant="h6">
+                <CardContent className="card_content">
+                    {/* <Typography variant="h6">
                         Ingredients:
                     </Typography>
                     <Typography paragraph>
@@ -119,7 +119,29 @@ class RecipeCard extends Component {
                     </Typography>
                     <Typography paragraph>
                         {this.props.directions}
-                    </Typography>
+                    </Typography> */}
+                    <Grid container direction="row">
+                        <Grid className="ingredients_section" item sm={12} md={4}>
+                            <Typography variant="h6">
+                                Ingredients:
+                            </Typography>
+                            <ul className="ingredients_list">
+                                    {this.props.ingredients.map((ingredient, i) => {
+                                        return (
+                                            <li key={i}>{ingredient}</li>
+                                        )
+                                    })}
+                            </ul> 
+                        </Grid>
+                        <Grid item sm={12} md={8}>
+                            <Typography variant="h6">
+                                Directions:
+                            </Typography>
+                            <Typography paragraph>
+                                {this.props.directions}
+                            </Typography>
+                        </Grid>
+                    </Grid>
                 </CardContent>
               </Collapse>
             </Card>
