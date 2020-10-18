@@ -22,6 +22,8 @@ class RecipeTable extends Component {
                                 ingredients={recipe.ingredients}
                                 directions={recipe.directions}
                                 source={recipe.source}
+                                image={recipe.image}
+                                total_prep_time={recipe.total_prep_time}
                                 className="card"
                             ></RecipeCard>
                         )

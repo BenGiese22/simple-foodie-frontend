@@ -1,12 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Neuton');
 
 .root {
-    max-width: 345;
     margin-bottom: 5px;
-}
-
-.media {
-    height: 0px;
-    padding-top: '56.25%';
+    background-color: lightgray!important;
 }
 
 .expand {
@@ -14,7 +10,55 @@
     margin-left: auto;
 
 }
-  
+
+
+.card_image_grid {
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.recipe_button {
+    float: right;
+}
+
+
+.card_recipe_image {
+    height: 100px;
+    width: 100px;
+    /* object-fit: cover; */
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.card_info_section {
+    color: black;
+    font-family: Neuton;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%
+}
+
+.card_title {
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.card_source {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.media {
+    height: 140px!important;
+    width: 140px!important;
+    padding-top: '56.25%'!important;
+}
+
 .expandOpen {
     transform: rotate(180deg);
 }

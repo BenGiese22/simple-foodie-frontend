@@ -6,12 +6,14 @@ import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions';
+import CardActions from '@material-ui/core/CardActions'
+// import CardMedia from '@material-ui/core/CardMedia'
 import Collapse from '@material-ui/core/Collapse'
 import IconButton from '@material-ui/core/IconButton'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
 
 class RecipeCard extends Component {
 
@@ -32,9 +34,12 @@ class RecipeCard extends Component {
             })
         }
 
+        const prep_time_not_available = this.props.total_prep_time === 0 ? true : false
+        const total_prep_time = this.props.total_prep_time
+        
         return (
             <Card className="root">
-                <CardHeader
+                {/* <CardHeader
                     action={
                         <IconButton>
                             <OpenInNewIcon
@@ -45,7 +50,50 @@ class RecipeCard extends Component {
                     }
                     title={this.props.title}
                     subheader={this.props.source}
-                />
+                /> */}
+                <Grid container direction="row">
+                    <Grid className="card_image_grid" item xs={4}>
+                        <img className="card_recipe_image" src={this.props.image} alt="recipe_image"/>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Grid container direction="row">
+                            <Grid item xs={11}>
+                                <div className="card_info_section">
+                                    <div className="card_title">
+                                        {this.props.title}
+                                    </div>
+
+                                    <Grid container direction="row">
+                                        <Grid item xs={6}>
+                                            <div className="card_prep_time">
+                                                {prep_time_not_available ? '' : total_prep_time + ' minutes'}
+                                            </div>
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <div>
+                                                <a className="card_source" href={this.props.link}>{this.props.source}</a>
+                                            </div>     
+                                        </Grid>
+                                    </Grid>
+                                </div>
+                            </Grid>
+                            <Grid item xs={1}>
+                                <IconButton className="recipe_button">
+                                    <OpenInNewIcon
+                                        fontSize="small"
+                                        onClick={this.handleNavigateToRecipe}
+                                    />
+                                </IconButton>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                {/* <CardMedia
+                    className="media"
+                    height="140"
+                    image={this.props.image}
+                    title={this.props.title}
+                /> */}
                 <CardActions disableSpacing>
                         <IconButton
                             className={clsx("expand", {
