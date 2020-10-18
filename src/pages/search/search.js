@@ -26,6 +26,7 @@ class Search extends Component {
         loading: false,
         currentPage: 1,
         recipesPerPage: 12,
+        hasSearched: false,
         service: new RecipeApi()
     }
 
@@ -49,7 +50,8 @@ class Search extends Component {
 
         // Start loading
         this.setState({
-            loading: true
+            loading: true,
+            hasSearched: true
         })
 
         this.timer = setTimeout(this.handleSearchRequest, WAIT_INTERVAL);
@@ -99,6 +101,24 @@ class Search extends Component {
         const indexOfLastRecipe = this.state.currentPage * this.state.recipesPerPage;
         const indexOfFirstRecipe = indexOfLastRecipe - this.state.recipesPerPage;
         const currentRecipes = this.state.recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+        const hasSearched = this.state.hasSearched;
+        let tableView;
+
+        if (hasSearched) {
+            tableView = <div>
+                <RecipeTable recipes={currentRecipes} loading={this.state.loading}/>
+                <Grid container alignContent="center" alignItems="center" justify="center" direction="row">
+                    <Pagination recipesPerPage={this.state.recipesPerPage} totalRecipes={this.state.recipes.length} paginate={this.updatePage}/>
+                </Grid>
+            </div>
+        } else {
+            tableView = 
+            <div>
+                <FeaturedRecipeTable/>
+            </div>
+        }
+
         return (
             
             <div id='search'>
@@ -129,12 +149,7 @@ class Search extends Component {
                          </FormControl>
                     </Grid>
                 </Grid>
-
-                <FeaturedRecipeTable/>
-                <RecipeTable recipes={currentRecipes} loading={this.state.loading}/>
-                <Grid container alignContent="center" alignItems="center" justify="center" direction="row">
-                    <Pagination recipesPerPage={this.state.recipesPerPage} totalRecipes={this.state.recipes.length} paginate={this.updatePage}/>
-                </Grid>
+                {tableView}
             </div>
         )
     }
