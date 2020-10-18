@@ -34,6 +34,8 @@
 
 .recipe_button {
     float: right;
+    margin-right: 3px!important;
+    margin-top: 3px!important;
 }
 
 .MuiIconButton-root {

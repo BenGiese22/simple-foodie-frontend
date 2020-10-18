@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 
 import RecipeTable from '../../component/recipe-table/recipe-table'
+import FeaturedRecipeTable from '../../component/featured-recipes-table/featured-recipes-table'
 import Pagination from '../../component/pagination/pagination'
 
 import RecipeApi from '../../service/recipe-api'
@@ -34,8 +35,8 @@ class Search extends Component {
 
     // Handles query input field change
     handleFieldChange = (newField) => {
-        this.setState((state) => {
-            return {field: newField};
+        this.setState({
+            field: newField
         });
     }
 
@@ -47,8 +48,8 @@ class Search extends Component {
         })
 
         // Start loading
-        this.setState(() => {
-            return {loading: true};
+        this.setState({
+            loading: true
         })
 
         this.timer = setTimeout(this.handleSearchRequest, WAIT_INTERVAL);
@@ -68,10 +69,9 @@ class Search extends Component {
                 recipes: [],
                 loading: false
             })
-            return;
+            return
         }
 
-        //["250 ml milk", "1 x 7 g sachet of yeast", "
         this.state.service.getQuery(this.state.field, this.state.query).then((recipes) => {
             console.log(recipes)
 
@@ -82,18 +82,14 @@ class Search extends Component {
             })
 
             // Stop loading
-            this.setState(() => {
-                return {loading: false};
-            })
-
             this.setState({
+                loading: false,
                 recipes: recipes
             })
         }) 
     }
 
     updatePage = (pageNumber) => {
-        console.log(pageNumber);
         this.setState(() => {
             return {currentPage : pageNumber}
         })
@@ -134,6 +130,7 @@ class Search extends Component {
                     </Grid>
                 </Grid>
 
+                <FeaturedRecipeTable/>
                 <RecipeTable recipes={currentRecipes} loading={this.state.loading}/>
                 <Grid container alignContent="center" alignItems="center" justify="center" direction="row">
                     <Pagination recipesPerPage={this.state.recipesPerPage} totalRecipes={this.state.recipes.length} paginate={this.updatePage}/>
