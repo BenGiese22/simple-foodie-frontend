@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import RecipeCard from '../recipe-card/recipe-card'
+import LoadingSpinner from 'react-loader-spinner' 
 import RecipeApi from '../../service/recipe-api'
 
 import './featured-recipes-table.css'
@@ -9,6 +10,7 @@ class FeaturedRecipesTable extends Component {
 
     state = {
         featuredRecipes: [],
+        loading: false,
         service: new RecipeApi()
     }
 
@@ -17,7 +19,9 @@ class FeaturedRecipesTable extends Component {
     }
 
     handleFeaturedRecipeSearchRequest = () => {
-
+        this.setState({
+            loading: true
+        })
         Promise.all(
             [   this.state.service.getRecipe(9043),
                 this.state.service.getRecipe(116)
@@ -31,6 +35,7 @@ class FeaturedRecipesTable extends Component {
             })
 
             this.setState({
+                loading: false,
                 featuredRecipes: recipes
             })
         })
@@ -42,8 +47,9 @@ class FeaturedRecipesTable extends Component {
 
         return (
             <>
+                {this.state.loading ? <LoadingSpinner className='spinner' type="ThreeDots" color="white" height={80} width={80}/> : null}
                 <div className="featured_title">
-                    Featured Recipes:
+                    Featured Recipes
                 </div>
                 <ul>
                     {this.state.featuredRecipes.map((recipe, i) => {
