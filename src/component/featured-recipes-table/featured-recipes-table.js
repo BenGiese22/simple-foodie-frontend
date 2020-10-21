@@ -48,9 +48,7 @@ class FeaturedRecipesTable extends Component {
         return (
             <>
                 {this.state.loading ? <LoadingSpinner className='spinner' type="ThreeDots" color="white" height={80} width={80}/> : null}
-                <div className="featured_title">
-                    Featured Recipes
-                </div>
+                {this.state.loading ? <div className="featured_title">Featured Recipes</div> : null}
                 <ul>
                     {this.state.featuredRecipes.map((recipe, i) => {
                         return (
